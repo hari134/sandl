@@ -27,11 +27,11 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> game","S'",1,None,None,None),
-  ('game -> statements','game',1,'p_game','_parser.py',63),
-  ('statements -> statement','statements',1,'p_statements','_parser.py',66),
-  ('statements -> statements statement','statements',2,'p_statements','_parser.py',67),
-  ('statement -> PLAYER move','statement',2,'p_statement','_parser.py',70),
-  ('move -> DICE_MOVE NUMBER','move',2,'p_move_dice','_parser.py',73),
-  ('move -> SNAKE_MOVE NUMBER TO NUMBER','move',4,'p_move_snake','_parser.py',76),
-  ('move -> LADDER_MOVE NUMBER TO NUMBER','move',4,'p_move_ladder','_parser.py',79),
+  ('game -> statements','game',1,'p_game','sandl.py',63),
+  ('statements -> statement','statements',1,'p_statements','sandl.py',66),
+  ('statements -> statements statement','statements',2,'p_statements','sandl.py',67),
+  ('statement -> PLAYER move','statement',2,'p_statement','sandl.py',70),
+  ('move -> DICE_MOVE NUMBER','move',2,'p_move_dice','sandl.py',73),
+  ('move -> SNAKE_MOVE NUMBER TO NUMBER','move',4,'p_move_snake','sandl.py',76),
+  ('move -> LADDER_MOVE NUMBER TO NUMBER','move',4,'p_move_ladder','sandl.py',79),
 ]
