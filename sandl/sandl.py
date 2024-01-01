@@ -71,6 +71,9 @@ class Parser:
 
     def p_move_dice(self, p):
         '''move : DICE_MOVE NUMBER'''
+        if not (1 <= int(p[2]) <= 6):
+            print("Dice move invalid")
+            raise Exception("Invalid dice move")
 
     def p_move_snake(self, p):
         '''move : SNAKE_MOVE NUMBER TO NUMBER'''
@@ -90,6 +93,9 @@ class Parser:
             if non_terminals_goto.get(key) is not None:
                 value.update(non_terminals_goto[key])
 
+    def do_checks(self,input_string):
+        self.parser.parse(input_string)
+        
     def parse(self, input_string):
         self.lexer.input(input_string)
         stack = []
@@ -131,15 +137,15 @@ class Parser:
                             state_stack.append(new_state)
                         else:
                             print("Error: No entry in Goto table.")
-                            break
+                            raise Exception("Error: No entry in Goto table.")
                     else:
                         print("Error: State stack is empty after reduction.")
-                        break
+                        raise Exception("Error: State stack is empty after reduction.")
 
                     action = self.parsing_table[state_stack[-1]].get(token_type)
                     if action is None:
                         print("Invalid token")
-                        break
+                        raise Exception("Invalid token")
 
                     table.add_row([step, stack.copy(), f"Reduced to {production.name}"])
                     table_json[step] = {'stack':stack.copy(),'operation':f"Reduced to {production.name}"}
@@ -179,7 +185,14 @@ class Parser:
 
     
 if __name__ == '__main__':
-    input_string = "player1 dice_move 3"
+    input_string = "player1 dice_move 3 player1 snake_move 30 to 10 player2 dice_move 12"
     parser = Parser()
     parser.parse(input_string)
-    table_json = parser.get_table()
+    try:
+        parser.parser.parse(input_string)
+    except Exception as e:
+        print(e)
+    
+
+
+

@@ -32,6 +32,6 @@ _lr_productions = [
   ('statements -> statements statement','statements',2,'p_statements','sandl.py',67),
   ('statement -> PLAYER move','statement',2,'p_statement','sandl.py',70),
   ('move -> DICE_MOVE NUMBER','move',2,'p_move_dice','sandl.py',73),
-  ('move -> SNAKE_MOVE NUMBER TO NUMBER','move',4,'p_move_snake','sandl.py',76),
-  ('move -> LADDER_MOVE NUMBER TO NUMBER','move',4,'p_move_ladder','sandl.py',79),
+  ('move -> SNAKE_MOVE NUMBER TO NUMBER','move',4,'p_move_snake','sandl.py',77),
+  ('move -> LADDER_MOVE NUMBER TO NUMBER','move',4,'p_move_ladder','sandl.py',80),
 ]
